@@ -138,15 +138,15 @@ document.addEventListener("DOMContentLoaded",
             const creepyAudio = new Audio("https://orangefreesounds.com/wp-content/uploads/2020/09/Creepy-piano-sound-effect.mp3?_=1");
             creepyAudio.play();
 
-            // Scroll to the top of the Great Old One (after 3 seconds to prevent reload jumps)
-            setTimeout(() => {
-                // Calculate some_vh from the top of the document (not relative to the current scroll position)
-                const scrollPosition = window.innerHeight * 0.3;  // % of the viewport height
-                window.scrollTo({
-                    top: scrollPosition,
-                    behavior: 'smooth' // Smooth scroll
-                });
-            }, 2500);
+            // // Scroll to the top of the Great Old One (after 3 seconds to prevent reload jumps)
+            // setTimeout(() => {
+            //     // Calculate some_vh from the top of the document (not relative to the current scroll position)
+            //     const scrollPosition = window.innerHeight * 0.3;  // % of the viewport height
+            //     window.scrollTo({
+            //         top: scrollPosition,
+            //         behavior: 'smooth' // Smooth scroll
+            //     });
+            // }, 2500);
         }
 });
 

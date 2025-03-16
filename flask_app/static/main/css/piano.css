@@ -1,4 +1,9 @@
 
+/* Injected after the other whole_main. Just changing up some colors */
+#whole_main {
+    background-color: #ffffff;
+}
+
 /* Styles overlap a lot with grid */
 .piano_main {
     height: fit-content;

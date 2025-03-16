@@ -1,4 +1,8 @@
 
+/* Injected after the other whole_main. Just changing up some colors */
+#whole_main {
+    background-color: #ffffff;
+}
 #resume_main {
     width: 80vw;
     margin: 0 auto;  /* Centers block-level elements */
