@@ -1,0 +1,19 @@
+
+/* Styles for the entire footer section */
+#footer {
+    background-color: #add8e6;  /* lightblue */
+    display: flex;
+    align-content: center; /* vertically */
+    justify-content: center; /* horizontally */
+    width: 100vw;
+    height: 70px;
+}
+
+/* Styles for paragraphs within the footer section */
+#footer > p {
+    align-content: center; /* vertically center the <p> within the div */
+    text-align: center;  /* centered within the <p>, horizontally */
+    color: #000000;
+}
+
+

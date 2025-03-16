@@ -1,0 +1,31 @@
+
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+    <!-- The entire edge-to-edge main section (applies main.css styling)-->
+    <div id="whole_main">
+        <br><br>
+        <div class="grid">
+            <div class="image">
+                <img src="../static/main/images/me.png" alt="a picture of Killian" class="my_image" loading="lazy">
+            </div>
+            <div class="description">
+                <h1 class="description">Killian Civiero</h1>
+                <p class="description">
+                    is an undergraduate computer science student at Michigan
+                    State University, also pursuing a minor in business.
+                </p>
+            </div>
+        </div>
+        <br><hr>
+        <div class="fun_fact">
+            <h1>A fun fact about me:</h1>
+            <h3>{{fun_fact}}</h3>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+
+{% endblock %}  {# maincontent #}
+
+

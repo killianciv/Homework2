@@ -1,0 +1,64 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main/css/resume.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+    <!-- The entire edge-to-edge main section (applies main.css styling)-->
+    <div id="whole_main">
+        <div id="resume_main">
+            <h1 class="resume_title"> My resume built using a MySQL database and Jinja to dynamically construct HTML: </h1>
+
+            <!-- For each institution, print out everything, then put an <hr> at the bottom-->
+            {% for inst_id, inst in resume_data.items() %}
+                <!-- Do something... -->
+                <div class="resume_item">
+                    <!-- Separate institutions with <hr>s -->
+                    {% if inst_id != 1 %}  <hr><br>  {% endif %}
+
+                    <div class="inst_info">
+                        <h1 class="inst_name"> {{ inst['name'] }} </h1>
+                        <p class="inst_location"> {{ inst['city'] }}, {{ inst['state'] }} </p>
+                    </div>
+
+                    {% if inst['positions'] != {} %}
+                        <!-- inst['positions'] is a dictionary within a dictionary. pos_id
+                            is the key and pos (yet another dictionary) is the value -->
+                        {% for pos_id, pos_info in inst['positions'].items() %}
+                            <!-- Title, responsibilities and time period -->
+                            <div class="title_date">
+                                <h3 class="position_title"> {{ pos_info['title'] }} </h3>
+                                <h5 class="start_end_date"> {{ pos_info['start_date'] }} -
+                                    {{ "present" if pos_info['end_date'] is none else pos_info['end_date'] }} </h5>
+                            </div>
+                            <h5 class="responsibilities"> {{ pos_info['responsibilities'] }} </h5>
+
+                            <!-- Put all experiences in a list -->
+                            <h2 class="experience_title">Experiences:</h2>
+                            <ul class="experiences_list">
+                                {% for experience_id, exp in pos_info['experiences'].items() %}
+                                    <!-- exp is yet another dictionary -->
+                                    <li>
+                                        <p class="exp">
+                                            <a href="https://{{ exp['hyperlink'] }}" class="exp_link">{{ exp['name'] }}</a>
+                                            - {{ exp['description'] }}
+                                        </p>
+                                        <p class="skill"> Skills learned: {{ exp['skills'].values() | map(attribute='name') | join(', ') }} </p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+            {% endfor %}
+
+            <br><br><br><br><br><br><br><br><br><br>
+
+        </div>
+    </div>
+{% endblock %}
+
+

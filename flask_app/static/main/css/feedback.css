@@ -1,0 +1,32 @@
+
+#feedback_main {
+    display: flex;
+    background-color: #CCCCCC;
+    flex-direction: column;
+    text-align: center;
+    width: 80vw;
+    margin: 0 auto;  /* Centers block-level elements */
+    padding-top: 0;  /* was 5px before I added resume_title */
+    align-items: flex-start;  /* Aligns child items (like .reviews) to the left */
+}
+.header {
+    align-self: center;
+    margin-bottom: 7px;
+}
+.reviews {
+    text-align: left;  /* Aligns text that's inside the <p> to the left */
+    margin: 0 8vw; /* top&bottom left&right */
+    padding: 5px;
+}
+.review {
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+    margin: 5px 0;
+}
+/* Instead of <br><br><br> */
+.page_extender {
+    height: 70vh;
+    width: 100%;
+}
+

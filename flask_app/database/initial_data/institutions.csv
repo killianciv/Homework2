@@ -1,0 +1,4 @@
+"inst_id","type","name","department","address","city","state","zip"
+"1","Industry","Canton Canopies",NULL,"some_address","Canton","MI",NULL
+"2","Industry","White Castle",NULL,"some_address","Canton","MI",NULL
+"3","Industry","Kil's Taekwondo Center",NULL,"some_address","Canton","MI",NULL

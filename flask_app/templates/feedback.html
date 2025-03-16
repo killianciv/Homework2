@@ -1,0 +1,28 @@
+
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main/css/feedback.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+    <!-- The entire edge-to-edge main section (applies main.css styling)-->
+    <div id="whole_main">
+        <!-- Content of feedback.html (applies feedback.css styling)-->
+        <div id="feedback_main">
+            <h1 class="header">Thank you for your feedback. Here's what others had to say: </h1>
+            <ul class="reviews">
+                {% for review in feedback %}
+                    <li>
+                        <p class="review">{{ review['name'] }} said: {{ review['comment'] }} </p>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <br> {#<hr>#}
+            <div class="page_extender"></div>
+        </div>
+    </div>
+
+{% endblock %}  {# maincontent #}
+

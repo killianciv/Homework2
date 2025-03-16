@@ -1,0 +1,31 @@
+
+/* Cannot scroll sideways */
+html, body {
+    /*overflow-x: hidden; !* Prevents horizontal scrolling, but makes the navbar "sticky" not work *!*/
+    width: 100%; /* Ensures full width */
+    margin: 0; /* No whitespace around the edges of everything */
+}
+
+/* Styles for the header div (id="header") */
+#header {
+    width: 100vw; /* 100% of the viewport width */
+    height: 15vh; /* 15% of viewport height */
+
+    /* Turn the div into a flexbox so we can center the image */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    border: 2px solid #000000;
+    box-sizing: border-box; /* Ensures border is inside the width, since width=100vw only accounts for the div itself */
+}
+
+/* Styles for images in the header, no matter how far nested they are */
+#header img {
+    width: 100%;  /* 100% of its parent's width */
+    height: 100%; /* 100% of its parent's height */
+    background-size: cover; /* Fills the entire containing box, even if pixels are lost */
+}
+
+
+
+

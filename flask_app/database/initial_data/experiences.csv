@@ -1,0 +1,8 @@
+"experience_id","position_id","name","description","hyperlink","start_date","end_date"
+"1","1","Huge tent","We set up a 120x40-foot tent for a backyard wedding","example.com","2020-01-01",NULL
+"2","1","Failure to plan","I had to take apart a stationary basketball hoop","example.com","2020-01-01",NULL
+"4","2","Truck","I unloaded the week's supplies off the semi truck","example.com","2020-01-01",NULL
+"3","3","Idiots","A customer drove a u-Haul into the menu","example.com","2020-01-01",NULL
+"5","4","Blackbelt","I earned my black belt","example.com","2020-01-01",NULL
+"6","4","Tournaments","I won a tournament, placing first in forms and sparring","example.com","2020-01-01",NULL
+

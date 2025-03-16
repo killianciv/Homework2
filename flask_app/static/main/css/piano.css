@@ -1,0 +1,124 @@
+
+/* Styles overlap a lot with grid */
+.piano_main {
+    height: fit-content;
+    width: 80vw;  /* rubric requirement */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;  /* Centers it horizontally within #whole_main */
+}
+.piano_header {
+    background-color: #ffffff;
+    display: flex;
+    align-self: center;
+    align-content: center;
+    padding: 20px 0;
+}
+.piano_header > h1 {
+    width: 80%;
+    margin: 0 auto;  /* Centers the element horizontally */
+    text-align: center;  /* Centers text horizontally within the div and spaces it out so it touches the edges*/
+}
+/* Piano title */
+.piano-title {
+    font-family: "Cursive", serif;
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* The piano (gray box) which includes a title and a section full of keys */
+.piano {
+    height: 80vh;
+    min-height: 300px;
+    background-color: #2d2f33;
+    padding: 40px 20px 20px 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    text-align: center;  /* "The Great Old One" */
+    align-self: center;
+    width: 60vw;
+    margin: 3% auto;  /* Moves piano downward a little bit */
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+/* Styles for the div representing the keyboard section of the piano */
+.keys {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;  /* Moves to bottom (column's end) of piano */
+    position: relative;
+}
+.key {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 1vw;
+    /* Makes the "playing" phase of a key click smoother */
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.white-key {
+    width: 10%;
+    height: 90%;
+    z-index: 1;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    box-sizing: border-box;
+}
+.black-key {
+    width: 7%;
+    height: 50%;
+    background-color: #000000;
+    position: absolute;
+    top: 10%;
+    z-index: 2;
+}
+/* Placement of black keys over the white keys. nth-child of the parent div 'keys' */
+.black-key:nth-child(2)  { left: 6.5%;  }  /* W */
+.black-key:nth-child(4)  { left: 16.5%; }  /* E */
+.black-key:nth-child(7)  { left: 36.5%; }  /* T */
+.black-key:nth-child(9)  { left: 46.5%; }  /* Y */
+.black-key:nth-child(11) { left: 56.5%; }  /* U */
+.black-key:nth-child(14) { left: 76.5%; }  /* O */
+.black-key:nth-child(16) { left: 86.5%; }  /* P */
+
+
+/* Styles for all letters be on the bottom of keys */
+.key > h1 {
+    font-size: min(2vw, 3vh);  /* Similar to calc(2vw) but works better for short wide screens */
+    height: fit-content;
+    position: absolute;
+    align-self: center;
+
+}
+.white-key > h1 {
+    bottom: 0;
+    color: #000000;
+}
+.black-key > h1 {
+    top: 70%;
+    color: #ffffff;
+}
+/* While playing for 150ms, make the key larger */
+.playing {
+    transform: scale(0.95);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+/* Styles for the image of the Great Old One and the div surrounding it */
+.asleep {
+    display: none;
+}
+.awoken {
+    display: flex;
+    align-self: center;
+}
+.great_old_one {
+    height: auto;
+    width: 60vw;  /* rubric requirement <= 80 */
+    display: block;
+    margin: 0 auto;
+}
+

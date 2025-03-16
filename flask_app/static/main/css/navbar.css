@@ -1,0 +1,224 @@
+
+/* Styling the whole navbar block */
+#navbar {
+    background-color: #222222;
+    width: 100vw;  /* % of the width of the viewing window */
+    height: 10vh;  /* % of viewport height */
+    left: 30%;  /* Moves the navbar 30% from the left side */
+    position: sticky;  /* Stays on the screen even after you have scrolled down */
+    top: 0;  /* It sticks to the very top of the screen */
+    z-index: 10;  /* Ensures it's above other elements */
+    display: flex;  /* Stacks .title and .nav_link_container divs horizontally (default) */
+}
+
+/* Styles for the left half of the nav bar (contains the title of the assignment) */
+.nav_title {
+    flex: 1;  /* Takes up one half of the navbar block (the left half) */
+    /* Center the contents in this half of the navbar (just text) */
+    display: flex;  /* Enables centering */
+    align-items: center;  /* Centers vertically */
+    justify-content: center;  /* Horizontally centers the title div */
+    /* Styling the actual words within this div */
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* Styles for the right half of the navbar */
+.nav_link_container {
+    flex: 1; /* Takes up half the screen */
+    margin: 0;
+    padding: 0;
+}
+/* Styles for the <ul> inside the nav_link_container div */
+.nav_links_list {
+    list-style: none;
+    display: flex;  /* Horizontal list */
+    align-content: space-between;
+    height: 100%;  /* Of the .nav_link_container div area */
+    width: 100%;  /* Of the .nav_link_container div area */
+    margin: 0;  /*gap: 0px; !* Horizontal gap between each link *!*/
+    padding: 0;
+}
+/* Styles for each <li> inside the <ul> */
+.nav_links_list li {
+    display: inline;  /* All <li>s are in a line */
+    height: 100%;  /* of the area the <ul> gave it */
+    width: 25%;  /* of the total <ul> area. Could also maybe do flex: 1; */
+    align-content: center;  /* Places its <a> in the vertical center of the <li> area */
+}
+/* Styles for the <a> block inside an <li> */
+li > a {
+    display: block;  /* Fill the entire area dedicated to the link */
+    justify-self: center;  /* Element goes in the horizontal center of its parent */
+    color: #ffffff;  /* White text */
+    text-decoration: underline;
+    font-size: 18px;
+    align-self: center;
+}
+/* Styles for states of a link in the .nav_link_container div */
+.nav_link_container a:visited {
+    color: #ffffff;
+}
+.nav_link_container a:hover {
+    opacity: 0.5;
+}
+
+
+a.image_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Styles for the LinkedIn image (inside a flexbox <a> so the image can be centered) */
+.nav_image {
+    height: 8vh;
+    width: 8vh;
+    align-self: center; /* Centers the image vertically inside its flex container */
+}
+
+
+/*
+//
+// Styling for the mobile dropdown menu (and its states)
+//
+*/
+/* Hide menu icon when the screen is large */
+.mobile_menu_bar {
+    display: none;
+}
+/* Hide the div holding the mobile links when screen is large */
+.mobile_dropdown {
+    display: none;  /* By default */
+}
+/* Styles for the mobile links div, applied via js after the icon is clicked */
+.expanded_mobile_dropdown {
+    display: flex;
+    flex-direction: column;  /* Displays contents vertically */
+    background-color: #222222;
+    height: 100vh;
+    padding: 5px;
+    width: 50vw;
+    position: fixed;
+    left: 25vw;  /* left of div is 20vw from the very left */
+    top: 0vh;  /* top of div is 0vh from the very top */
+    align-items: center;  /* Horizontally */
+    justify-content: space-evenly;  /* Vertically */
+    z-index: 11;  /* 1 in front of the Navbar */
+}
+/* Styles for each link in the revealed menu */
+.expanded_mobile_dropdown > a {
+    display: block;
+    color: #ffffff;
+    width: fit-content;  /* So you can't click next to it */
+    font-size: 18px;
+}
+.expanded_mobile_dropdown > a:hover {
+    color: #ff9a11;
+    opacity: 0.9;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Media query to change certain CSS for the website when the screen is LESS THAN 650px WIDE
+   When that condition is met, my photo and description must be vertically stacked, and
+    text overflow should be visible. When that condition is met, it overrides ONLY THE
+    SELECTED CSS PROPERTIES for that selector.
+    The navbar must be turned into a hidden menu that is revealed after I click the menu icon
+    The LinkedIn icon must be replaced by the word "LinkedIn"
+*/
+@media screen and (max-width: 650px) {
+    /* Hide All the links when small screen */
+    .nav_link_container {
+        display: none;
+    }
+    /* Un-hide the div containing the menu bar image */
+    .mobile_menu_bar {
+        display: flex;  /* Was none */
+        flex: 1;  /* Half of the navbar */
+        align-items: center;  /* Sets all children to align-self: center; */
+        justify-content: center;  /* Centers horizontally */
+
+        /* This makes it not be in the center of its half of the navbar */
+        position: relative;
+    }
+    /**/
+    a.mobile_menu_bar_link {
+        display: flex;  /* So the image can be centered */
+        align-items: center;
+        justify-content: center;
+        transform: translateX(10vw); /* Shift right without overflow */
+    }
+    .menu_bar_img {
+        height: 9vh;
+        width: auto;  /* For aspect ratio */
+        display: block;  /* This has to be here or it won't work */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Old media query stuff: */
+/*.nav_image {*/
+/*        display: none;  !* Hide the LinkedIn image link *!*/
+/*}*/
+/*.linked_in_text {*/
+/*    !* The text content is in a nested <h2>, not just in an <a>, so to make*/
+/*        it look like the other links, must reapply the styling that <a>s have *!*/
+/*    display: block;  !* Like other <a>'s. This un-hides the "LinkedIn" link *!*/
+/*    color: white;*/
+/*    font-weight: normal;*/
+/*    font-size: 16px;*/
+/*}*/
+/*li > a {*/
+/*    font-size: 16px;*/
+/*}*/
+
+
+/*Old stuff for LinkedIn image turning into words: */
+/* Extra styling for the <a> containing the LinkedIn <img>. Different from other links because even though
+    it's already a flex item, it also needs to be a flex box so it can center the embedded image */
+/* Hide text by default. When media query is true, different CSS is applied */
+/*.linked_in_text {*/
+/*    display: none;*/
+/*}*/
+/*!* Styles specific to the linked_in <li> *!*/
+/*.linked_in_li {*/
+/*    background-color: #777777;  !* So I can see boundary *!*/
+/*}*/
+

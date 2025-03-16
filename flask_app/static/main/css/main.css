@@ -1,0 +1,236 @@
+body {
+    background : white;
+    color: black;
+}
+/* Styles for the entire edge-to-edge main section */
+#whole_main {
+    background-color: #CCCCCC;
+    width: 100vw;  /* 100% of the viewport width */
+    min-height: fit-content;  /* Ensures it extends as content grows */
+
+    /* Stacks all divs (.grid, .fun_fact, etc.) vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centers all children (including .piano_main) */
+}
+/* Styles for grid within the main section */
+.grid {
+    max-height: 50vh;  /* rubric requirement */
+    max-width: 80vw;  /* rubric requirement */
+    align-self: center;  /* Center of #main */
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Two columns of equal size */
+    grid-template-rows: 1fr;  /* Whole grid is 1 row */
+    grid-gap: 2px;  /* between boxes */
+}
+/* Styles for the left div inside the grid, which holds the image */
+div.image {
+    /* Center everything */
+    display: flex;  /* Enables centering */
+    align-items: center;  /* Centers the image vertically */
+    justify-content: center;  /* Centers the image horizontally */
+    /* Make sure everything fits */
+    width: 100%;
+    height: 100%;
+    border: 5px solid #000000;
+    box-sizing: border-box;  /* Border gets included in width/height */
+    overflow: hidden;  /* Prevents the image from overflowing */
+}
+/* Styles for the photo of me in the image div */
+img.my_image {
+    width: 100%; /* Of the dedicated grid section (which is half the screen) */
+    height: 100%; /* Ensures it fills the grid cell height */
+    object-fit: cover; /* Ensures the image fills the div without aspect ratio distortion. May lose pixels */
+    display: block;  /* Turns it into a block-level element so it can be centered and fill the whole space */
+}
+/* Styles for the description div inside the grid. Applies to all "About Me" and project descriptions */
+div.description {
+    grid-row: 1;
+    grid-column: 2;
+    border: 1px solid black;
+    box-sizing: border-box;  /* Ensures the border is included in width/height */
+    padding: 0 10px 0 10px; /* top, right, bottom, left */
+    overflow: scroll;  /* Scroll bar inside the div for content that goes out of bounds */
+    /* NOT a flexbox since I need <h1> and <p> inline */
+    text-align: justify;  /* Centers text horizontally within the div and spaces it out so it touches the edges*/
+    align-content: center;  /* Puts everything vertically in the middle of the box, if it is not full */
+}
+h1.description {
+    display: inline;  /* Not treated as a block nor a flex item, gets placed next to the <p> */
+    font-weight: bold;
+    font-size: 34px;
+    color: black;
+}
+p.description {
+    display: inline;  /* Not treated as a block nor a flex item, gets placed next to the <h1> */
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+}
+hr {
+    background-color: #000000;
+    width: 80vw;
+    height: 3px;
+}
+.fun_fact {
+    align-self: center; /* Moves the div over to the middle of the screen */
+    text-align: center; /* Inline text elements (like h1 and h3) are centered within the div */
+}
+
+
+.feedback_side_button {
+    background-color: #222222;
+    position: fixed;
+    left: 97vw;  /* left of div is 95vw from the very left */
+    top: 45vh;  /* top of div is 45vh from the very top */
+    z-index: 5;  /* in front of almost everything */
+    width: 3vw;
+    height: 12vh;
+    min-height: 50px;
+    display: flex;
+    align-items: center;  /* Horizontally */
+    justify-content: center;  /* Vertically */
+    box-sizing: border-box;
+    border: 3px solid #777777;  /* Applies border to all sides */
+    border-right: none;  /* Removes the right border */
+}
+.feedback_word {
+    color: white;
+    font-size: calc(2.5vh);
+    min-font-size: 9px;
+    transform: rotate(-90deg);  /* counterclockwise is negative */
+}
+.invis_feedback_form {
+    display: none;  /* By default */
+}
+.popped_up_feedback_form {
+    display: flex;  /* Hidden until clicked */
+    background-color: #222222;
+    position: fixed;
+    left: 30vw;  /* left of div is 20vw from the very left */
+    top: 15vh;  /* top of div is 0vh from the very top */
+    width: 40vw;
+    height: 60vh;
+    z-index: 11;  /* 1 in front of the navbar */
+    flex-direction: column;  /* Displays contents vertically */
+    padding: 5px;
+    align-items: center;  /* Horizontally */
+    box-sizing: border-box;
+    border: 3px solid #21A4D8;  /* Applies border to all sides */
+}
+.feedback_form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Horizontally?  */
+    justify-content: space-evenly;  /* Vertically */
+}
+.feedback_input {
+    display: flex;
+    align-content: center;  /* Vertically */
+    justify-content: center;  /* Horizontally */
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border: 3px solid #21A4D8;  /* Applies border to all sides */
+    width: 80%;
+    height: 10%;
+    padding: 0;
+}
+.feedback_textarea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Horizontally because of column */
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border: 3px solid #21A4D8;  /* Applies border to all sides */
+    width: 80%;
+    height: 30%;
+    padding: 0;  /* top&bottom left&right */
+}
+#name, #email, #comment {
+    height: 100%;
+    width: 90%;
+    box-sizing: border-box;  /* Makes its default border fit in the space */
+    border: none;
+    outline: none;  /* Removes the 'focus outline' border the browser applies when an input box is clicked */
+    color: #21A4D8;  /* Color of inputted text */
+}
+#comment {
+    resize: none;  /* Remove the resizing handle at the bottom-right of the text area */
+}
+#charCount {
+    align-self: flex-end;
+    margin-bottom: 0;
+    opacity: 0.6;
+    font-size: 14px;
+}
+.feedback_submit {
+    display: flex;
+    align-content: center;  /* Vertically */
+    background-color: #21A4D8;
+    box-sizing: border-box;
+    border: 3px solid #ffffff;  /* Applies border to all sides */
+    width: 80%;
+    height: 15%;
+    padding: 0;
+}
+.feedback_submit > button {
+    width: 100%;
+    text-align: left;  /* Horizontally */
+    padding-left: 10px;
+    background-color: #21A4D8;
+    border: none;
+    outline: none;  /* Removes the 'focus outline' */
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+
+
+/* Media query to change certain CSS for the website when the screen is LESS THAN 650px WIDE
+   When that condition is met, my photo and description must be vertically stacked, and
+    text overflow should be visible. When that condition is met, it overrides ONLY THE
+    SELECTED CSS PROPERTIES for that selector. Must come after the first description or else
+    it will be overridden instantly always.
+*/
+@media screen and (max-width: 650px) {
+    .grid {
+        /* At small screen sizes, it is one column with multiple rows */
+        min-height: fit-content;  /* Whole grid grows as needed */
+        grid-template-columns: 1fr;  /* One column, so no row template gets specified */
+        grid-auto-rows: auto;  /* Automatically sizes each row based on size of content in the row's div */
+    }
+    div.description {
+        /* At small screen sizes, descriptions go below the image */
+        grid-row: 2;
+        grid-column: 1;
+        padding: 0 5px 0 5px; /* top, right, bottom, left */
+        overflow: visible;  /* Scroll bar inside the div for content that goes out of bounds */
+    }
+    div.image {
+        /* At small screen sizes, it goes above the description */
+        grid-row: 1;
+        grid-column: 1;
+        min-width: 100%;
+        height: 40vh; /* % of the screen height */
+    }
+
+    /* Feedback stuff: */
+    input, textarea,
+    input::placeholder,
+    textarea::placeholder {
+        font-size: 11px;
+    }
+    .popped_up_feedback_form {
+        width: 60vw;
+        left: 50%;  /* Move the left edge to the middle */
+        transform: translateX(-50%);  /* Shift it back by half its width */
+    }
+    #charCount {
+        font-size: 10px;
+    }
+}
+
+

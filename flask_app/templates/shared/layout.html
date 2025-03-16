@@ -1,0 +1,112 @@
+<!-- FILL ME IN WITH CODE FOR YOUR PAGE LAYOUT -->
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="A page on Killian's website">
+        <meta name="keywords" content="practice, first, class">
+        <meta name="author" content="Killian Civiero">
+        <title>Killian's Website</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='main/images/k_favicon.ico') }}">
+        <!-- Link all stylesheets to this document-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main/css/header.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main/css/navbar.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main/css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main/css/footer.css') }}">
+        {% block extracss %}{% endblock %}  {# Pages can inject <link>s here. Underneath so conflicts override #}
+        <script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='main/js/navbar.js') }}" defer></script>
+        {% block extrajs %}{% endblock %}  {# Pages can inject <script>s here. Underneath so conflicts override #}
+    </head>
+
+    <body>
+        <article>
+        <!-- Header section (applies header.css styling)-->
+        <div id="header">
+            <img src="../../static/main/images/banner.jpg" alt="header banner image" loading="lazy">
+        </div>
+
+        <!-- navbar section (uses navbar.css styling)-->
+        <div id="navbar">
+            <div class="nav_title">CSE 477 - Homework 1</div>
+            <!-- Hidden when screen width < 650px -->
+            <div class="nav_link_container">
+                <ul class="nav_links_list">
+                    <li> <a href="/home">Homepage</a> </li>
+                    <li> <a href="/projects">Projects</a> </li>
+                    <li> <a href="/resume">Resume</a> </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/killian-civiero/" class="image_link" target="_blank">
+                            <img src="../../static/main/images/social-linkedin.png" alt="LinkedIn link" class="nav_image" loading="lazy">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Hidden when screen width > 650px -->
+            <div class="mobile_menu_bar">
+                <!-- Link is clickable, does not reload or go anywhere -->
+                <a href="javascript:void(0);" class="mobile_menu_bar_link">
+                    <img src="../../static/main/images/menu-bar.png" alt="menu bar image" class="menu_bar_img" loading="lazy">
+                </a>
+            </div>
+        </div>
+        <!-- When .mobile_menu_bar_link is clicked, this div becomes class="expanded_mobile_dropdown" -->
+        <div class="mobile_dropdown">
+            <a href="/home"> Homepage </a>
+            <a href="/projects"> Projects </a>
+            <a href="/resume"> Resume </a>
+            <a href="https://www.linkedin.com/in/killian-civiero/" target="_blank"> LinkedIn </a>
+        </div>
+
+        <main>
+            {# All pages need the same feedback feature, so it goes here #}
+            {# Button on the right side of the screen #}
+            <div class="feedback_side_button">
+                <p class="feedback_word">Feedback</p>
+            </div>
+            {# Starts invisible --> js toggles it --> gets displayed #}
+            <div class="invis_feedback_form">
+                {# Make an HTTP POST request, reroute to /processfeedback #}
+                <form action="/processfeedback" method="POST" class="feedback_form">
+                    <div class="feedback_input">
+                        <input type="text" id="name" name="name" placeholder="Enter your name" title="Please enter your full name (First and Last)." required>
+                    </div>
+                    <div class="feedback_input">
+                        <input type="email" id="email" name="email" placeholder="Enter your email" title="Enter a valid email (e.g., example@email.com)." required>
+                    </div>
+                    <div class="feedback_textarea">
+                        <textarea id="comment" name="comment" placeholder="Enter your comment"
+                              title="Write your feedback or message (Max 250 characters)."
+                              oninput="updateCharCount()" required></textarea>
+                        <p id="charCount">250 characters remaining</p>
+                    </div>
+                    <div class="feedback_submit">
+                        <button type="submit" >SEND</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- (We tell the app to render a file by pasting part of its code here) -->
+            {% block maincontent %}
+
+            {% endblock %}
+        </main>
+
+        <!-- The footer of the file (applies footer.css styling)-->
+        <div id="footer">
+            <p>&copy; Killian Civiero</p>
+        </div>
+
+        </article>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+

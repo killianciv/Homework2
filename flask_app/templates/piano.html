@@ -1,0 +1,55 @@
+
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main/css/piano.css') }}">
+{% endblock %}
+{% block extrajs %}
+    <script src="{{ url_for('static', filename='main/js/piano.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+    <!-- The entire edge-to-edge main section (applies main.css styling)-->
+    <div id="whole_main">
+        <br>
+        <div class="piano_main">
+            <div class="piano_header">
+                <h1><i>Behold piano great and old, it's master slumbers in far off
+                    cold, If you wish to see anew, call out to it - we see you.</i>
+                </h1>
+            </div>
+            <hr>
+            <br>
+            <!-- Everything in "asleep" is hidden, or everything in "piano_main" is hidden-->
+            <div class="asleep">
+                <img src="../static/main/images/great-old-one.png" class="great_old_one" alt="the great old one" loading="lazy">
+            </div>
+            <div class="piano">
+                <div class="piano-title">The Great Old One</div>
+                <div class="keys">
+                    <div data-key="A" class="key white-key">    <h1>A</h1></div>
+                        <div data-key="W" class="key black-key"><h1>W</h1></div>
+                    <div data-key="S" class="key white-key">    <h1>S</h1></div>
+                        <div data-key="E" class="key black-key"><h1>E</h1></div>
+                    <div data-key="D" class="key white-key">    <h1>D</h1></div>
+                    <div data-key="F" class="key white-key">    <h1>F</h1></div>
+                        <div data-key="T" class="key black-key"><h1>T</h1></div>
+                    <div data-key="G" class="key white-key">    <h1>G</h1></div>
+                        <div data-key="Y" class="key black-key"><h1>Y</h1></div>
+                    <div data-key="H" class="key white-key">    <h1>H</h1></div>
+                        <div data-key="U" class="key black-key"><h1>U</h1></div>
+                    <div data-key="J" class="key white-key">    <h1>J</h1></div>
+                    <div data-key="K" class="key white-key">    <h1>K</h1></div>
+                        <div data-key="O" class="key black-key"><h1>O</h1></div>
+                    <div data-key="L" class="key white-key">    <h1>L</h1></div>
+                        <div data-key="P" class="key black-key"><h1>P</h1></div>
+                    <div data-key=";" class="key white-key">    <h1>;</h1></div>
+                </div>
+            </div>
+        </div>
+        <br> {#<hr>#}
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+{% endblock %}  {# maincontent #}
+

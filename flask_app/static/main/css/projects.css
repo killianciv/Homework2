@@ -1,0 +1,122 @@
+
+
+/* Project page's banner CSS */
+div.proj_header {
+    border: 5px solid #000000;
+    box-sizing: border-box;  /* Ensures the border is included in width/height */
+    padding: 10px 10px;  /* top&bottom left&right */
+    display: flex;
+    width: 80vw;
+    flex-direction: column;
+    align-self: center;  /* div in the horizontal center of main */
+}
+.proj_header > h1 {
+    align-self: center;
+    font-size: 30px;
+    margin-top: 0;  /* Only padding separates it from the border */
+    margin-bottom: 5px;
+}
+.proj_header > h5 {
+    align-self: center;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;  /* Only padding separates it from the border */
+}
+
+/* Styles for grid within the main section */
+.grid {
+    max-height: 50vh;  /* rubric requirement */
+    max-width: 80vw;  /* rubric requirement */
+    align-self: center;  /* Center of #main */
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Two columns of equal size */
+    grid-template-rows: 1fr;  /* Whole grid is 1 row */
+    grid-gap: 2px;  /* between boxes */
+}
+
+/* Styles for the left div inside the grid, which holds the image */
+div.image {
+    /* Center everything */
+    display: flex;  /* Enables centering */
+    align-items: center;  /* Centers the image vertically */
+    justify-content: center;  /* Centers the image horizontally */
+    /* Make sure everything fits */
+    width: 100%;
+    height: 100%;
+    border: 5px solid #000000;
+    box-sizing: border-box;  /* Border gets included in width/height */
+    overflow: hidden;  /* Prevents the image from overflowing */
+}
+/* Styles for piano picture <a> which is in the image div */
+div.image > a {
+    display: block;  /* Turns it into a block-level element so it can be centered and fill the whole space */
+    width: 100%; /* Of the dedicated grid section (which is half the screen) */
+    height: 100%; /* Ensures it fills the grid cell height */
+}
+/* Styles for the photo of the piano in the main section */
+a > .piano_image{
+    width: 100%; /* Of the dedicated <a> section (which is half the screen) */
+    height: 100%; /* Ensures it fills the grid cell height */
+    object-fit: cover; /* Ensures the image fills the div without aspect ratio distortion. May lose pixels */
+    display: block;  /* Turns it into a block-level element so it can be centered and fill the whole space */
+}
+
+/* Styles for the description div inside the grid. Applies to all "About Me" and project descriptions */
+h1.proj_description {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 34px;
+}
+p.proj_description {
+    text-align-last: justify;  /* Forces the last line of a <p> to also justify */
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 20px;
+    /* The "click here to play" is also justified */
+}
+
+
+/* Media query to change certain CSS for the website when the screen is LESS THAN 650px WIDE
+   When that condition is met, my photo and description must be vertically stacked, and
+    text overflow should be visible. When that condition is met, it overrides ONLY THE
+    SELECTED CSS PROPERTIES for that selector.
+  HAD TO REDECLARE HERE, EVEN THOUGH THIS FILE SHOULD ALSO INCLUDE MAIN.CSS
+*/
+@media screen and (max-width: 650px) {
+    .grid {
+        /* At small screen sizes, it is one column with multiple rows */
+        min-height: fit-content;  /* Whole grid grows as needed */
+        grid-template-columns: 1fr;  /* One column, so no row template gets specified */
+        grid-auto-rows: auto;  /* Automatically sizes each row based on size of content in the row's div */
+    }
+    div.description {
+        /* At small screen sizes, they go below the image */
+        grid-row: 2;
+        grid-column: 1;
+        padding: 0 5px 0 5px; /* top, right, bottom, left */
+        overflow: visible;  /* Scroll bar inside the div for content that goes out of bounds */
+    }
+    div.image {
+        /* At small screen sizes, it goes above the description */
+        grid-row: 1;
+        grid-column: 1;
+        min-width: 100%;
+        height: 40vh; /* % of the screen height */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
