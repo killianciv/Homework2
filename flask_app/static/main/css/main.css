@@ -81,10 +81,10 @@ hr {
 .feedback_side_button {
     background-color: #222222;
     position: fixed;
-    left: 97vw;  /* left of div is 95vw from the very left */
+    left: 96vw;  /* left of div is 95vw from the very left */
     top: 45vh;  /* top of div is 45vh from the very top */
     z-index: 5;  /* in front of almost everything */
-    width: 3vw;
+    width: 4vw;
     height: 12vh;
     min-height: 50px;
     display: flex;
@@ -96,7 +96,7 @@ hr {
 }
 .feedback_word {
     color: white;
-    font-size: calc(2.5vh);
+    font-size: calc(2.3vh);
     min-font-size: 9px;
     transform: rotate(-90deg);  /* counterclockwise is negative */
 }
