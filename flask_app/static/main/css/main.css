@@ -189,9 +189,6 @@ hr {
 
 
 
-.dynamic-hr {
-    display: none;
-}
 
 /* Media query to change certain CSS for the website when the screen is LESS THAN 650px WIDE
    When that condition is met, my photo and description must be vertically stacked, and
@@ -202,18 +199,21 @@ hr {
 @media screen and (max-width: 650px) {
     .grid {
         /* At small screen sizes, it is one column with multiple rows */
-        min-height: fit-content;  /* Whole grid grows as needed */
-        grid-template-columns: 1fr;  /* One column, so no row template gets specified */
-        grid-auto-rows: auto;  /* Automatically sizes each row based on size of content in the row's div */
+        min-height: fit-content; /* Whole grid grows as needed */
+        grid-template-columns: 1fr; /* One column, so no row template gets specified */
+        grid-auto-rows: auto; /* Automatically sizes each row based on size of content in the row's div */
         flex-grow: 1;
+        margin-bottom: 20px; /* Prevent overlap */
     }
+
     div.description {
         /* At small screen sizes, descriptions go below the image */
         grid-row: 2;
         grid-column: 1;
-        padding: 0 5px 0 5px; /* top, right, bottom, left */
-        overflow: visible;  /* Scroll bar inside the div for content that goes out of bounds */
+        padding: 0 5px 0 5px;  /* top, right, bottom, left */
+        height: fit-content;
     }
+
     div.image {
         /* At small screen sizes, it goes above the description */
         grid-row: 1;
@@ -228,18 +228,17 @@ hr {
     textarea::placeholder {
         font-size: 11px;
     }
+
     .popped_up_feedback_form {
         width: 60vw;
-        left: 50%;  /* Move the left edge to the middle */
-        transform: translateX(-50%);  /* Shift it back by half its width */
+        left: 50%; /* Move the left edge to the middle */
+        transform: translateX(-50%); /* Shift it back by half its width */
     }
+
     #charCount {
         font-size: 10px;
     }
-    .dynamic-hr {
-        margin-top: auto; /* Pushes it down */
-        display: block;
-    }
+
 }
 
 
