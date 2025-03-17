@@ -189,6 +189,10 @@ hr {
 
 
 
+.dynamic-hr {
+    display: none;
+}
+
 /* Media query to change certain CSS for the website when the screen is LESS THAN 650px WIDE
    When that condition is met, my photo and description must be vertically stacked, and
     text overflow should be visible. When that condition is met, it overrides ONLY THE
@@ -201,6 +205,7 @@ hr {
         min-height: fit-content;  /* Whole grid grows as needed */
         grid-template-columns: 1fr;  /* One column, so no row template gets specified */
         grid-auto-rows: auto;  /* Automatically sizes each row based on size of content in the row's div */
+        flex-grow: 1;
     }
     div.description {
         /* At small screen sizes, descriptions go below the image */
@@ -230,6 +235,10 @@ hr {
     }
     #charCount {
         font-size: 10px;
+    }
+    .dynamic-hr {
+        margin-top: auto; /* Pushes it down */
+        display: block;
     }
 }
 
